@@ -1,4 +1,32 @@
-<h1>New driver</h1>
+body {
+  background-color: black;
+  margin: 0;
+}
+
+.header {
+  background-color: #666;
+  color: white;
+  padding: 30px;
+  text-align: center;
+  float: middle;
+  
+}
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+  color: white;
+}
+
+<body>
+<div class="header">
+<h1>Master Driver</h1>
+<p>YOUR JOURNEY, OUR MISSION </p>
+</div>
+
+
+<div class="column"><h2>New driver</h2> </div>
+
 
 <%= render "form", driver: @driver %>
 
@@ -7,3 +35,4 @@
 <div>
   <%= link_to "Back to drivers", drivers_path %>
 </div>
+</body>
