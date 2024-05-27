@@ -1,18 +1,17 @@
 <div id="<%= dom_id driver %>">
-<body style="background-color: skyblue">
-<table border=4>
-  <tr align="center">
-  <th><strong style="color: white">Name:</strong></th>
-  <th><strong style="color: white">Contact number string:</strong></th>
-  <th><strongs tyle="color: white">Bus:</strong></th>
-  </tr>
+  <p>
+    <strong>Name:</strong>
+    <%= driver.name %>
+  </p>
 
-  <tr>
-  <th><%= driver.name %></th>
-  <th><%= driver.contact_number_string %></th>
-  <th><%= driver.bus_id %></th>
-  </tr>
+  <p>
+    <strong>Contact number string:</strong>
+    <%= driver.contact_number_string %>
+  </p>
 
-</table>
-</body>
+  <p>
+    <strong>Bus:</strong>
+    <%= driver.bus_id %>
+  </p>
+
 </div>

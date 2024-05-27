@@ -1,17 +1,187 @@
-<div id="<%= dom_id passenger %>">
-  <p>
-    <strong>Name:</strong>
-    <%= passenger.name %>
-  </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trips Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
 
-  <p>
-    <strong>Contact number:</strong>
-    <%= passenger.contact_number %>
-  </p>
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-  <p>
-    <strong>Email address:</strong>
-    <%= passenger.email_address %>
-  </p>
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
 
-</div>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        td {
+            white-space: pre; 
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 10px;
+        }
+
+        input, select {
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            text-decoration: none;
+            color: #4CAF50;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100px;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .passenger-container {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .passenger-container p {
+            margin: 0;
+        }
+
+        .passenger-container strong {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>List of Trips</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Trip ID</th>
+                    <th>Destination</th>
+                    <th>Date</th>
+                    <th>Bus Plate Number</th>
+                    <th>Drivers</th>
+                    <th>Bus Picture</th>
+                    <th>Number of Passengers</th>
+                    <th>Total Fare</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>Naga City</td>
+                    <td>2024-05-20</td>
+                    <td>AB1234CD</td>
+                    <td>Symoun Aldeoca | Matt Ela-Avellana</td>
+                    <td><img src="bus1.jpg" alt="Bus 001"></td>
+                    <td id="passengers-001">0</td>
+                    <td id="fare-001">P0</td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>Legazpi City</td>
+                    <td>2024-05-22</td>
+                    <td>EF5678GH</td>
+                    <td>Marphil Aquino</td>
+                    <td><img src="bus2.jpg" alt="Bus 002"></td>
+                    <td id="passengers-002">0</td>
+                    <td id="fare-002">P0</td>
+                </tr>
+                <tr>
+                    <td>003</td>
+                    <td>Manila</td>
+                    <td>2024-05-25</td>
+                    <td>IJ9012KL</td>
+                    <td>Dave Boroc</td>
+                    <td><img src="bus3.jpg" alt="Bus 003"></td>
+                    <td id="passengers-003">0</td>
+                    <td id="fare-003">P0</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="passenger-container">
+            <h2>New Passenger</h2>
+            <div id="passenger1">
+                <p>
+                    <strong>Name:</strong>
+                     <%= passenger.name %>
+                </p>
+                <p>
+                    <strong>Contact number:</strong>
+                    <%= passenger.contact_number %>
+                </p>
+                <p>
+                    <strong>Email address:</strong>
+                   <%= passenger.email_address%>
+                </p>
+            </div>
+          </div>
+    </div>
+</body>
+</html>
+
+

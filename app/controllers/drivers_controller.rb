@@ -1,12 +1,13 @@
 class DriversController < ApplicationController
-  before_action :set_driver, only: %i[ show edit update destroy ]
+  before_action :set_driver, only: [:show, :edit, :update, :destroy]
+  before_action :set_buses, only: [:new, :edit, :create, :update]
 
-  # GET /drivers or /drivers.json
+  # GET /drivers
   def index
     @drivers = Driver.all
   end
 
-  # GET /drivers/1 or /drivers/1.json
+  # GET /drivers/1
   def show
   end
 
@@ -19,42 +20,30 @@ class DriversController < ApplicationController
   def edit
   end
 
-  # POST /drivers or /drivers.json
+  # POST /drivers
   def create
     @driver = Driver.new(driver_params)
-
-    respond_to do |format|
-      if @driver.save
-        format.html { redirect_to driver_url(@driver), notice: "Driver was successfully created." }
-        format.json { render :show, status: :created, location: @driver }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @driver.errors, status: :unprocessable_entity }
-      end
+    
+    if @driver.save
+      redirect_to @driver, notice: 'Driver was successfully created.'
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /drivers/1 or /drivers/1.json
+  # PATCH/PUT /drivers/1
   def update
-    respond_to do |format|
-      if @driver.update(driver_params)
-        format.html { redirect_to driver_url(@driver), notice: "Driver was successfully updated." }
-        format.json { render :show, status: :ok, location: @driver }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @driver.errors, status: :unprocessable_entity }
-      end
+    if @driver.update(driver_params)
+      redirect_to @driver, notice: 'Driver was successfully updated.'
+    else
+      render :edit
     end
   end
 
-  # DELETE /drivers/1 or /drivers/1.json
+  # DELETE /drivers/1
   def destroy
-    @driver.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to drivers_url, notice: "Driver was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    @driver.destroy
+    redirect_to drivers_url, notice: 'Driver was successfully destroyed.'
   end
 
   private
@@ -63,8 +52,12 @@ class DriversController < ApplicationController
       @driver = Driver.find(params[:id])
     end
 
+    def set_buses
+      @buses = Bus.all
+    end
+
     # Only allow a list of trusted parameters through.
     def driver_params
-      params.require(:driver).permit(:name, :contact_number_string, :bus_id)
+      params.require(:driver).permit(:name, :contact_number, :bus_id, :image)
     end
 end
