@@ -1,17 +1,24 @@
-<div id="<%= dom_id driver %>">
-  <p>
-    <strong>Name:</strong>
-    <%= driver.name %>
-  </p>
+<p>
+  <strong>Name:</strong>
+  <%= @driver.name %>
+</p>
 
-  <p>
-    <strong>Contact Number:</strong>
-    <%= driver.contact_number_string %>
-  </p>
+<p>
+  <strong>Contact Number:</strong>
+  <%= @driver.contact_number_string %>
+</p>
 
-  <p>
-    <strong>Bus:</strong>
-    <%= driver.bus_id %>
-  </p>
+<p>
+  <strong>Bus:</strong>
+  <%= @driver.bus.plate_number %>
+</p>
 
-</div>
+<% if @driver.image.attached? %>
+  <p>
+    <strong>Image:</strong>
+    <%= image_tag @driver.image %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_driver_path(@driver) %> |
+<%= link_to 'Back', drivers_path %>
