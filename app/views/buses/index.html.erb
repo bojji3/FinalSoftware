@@ -1,14 +1,140 @@
-<p style="color: green"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
 
-<h1>Buses</h1>
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-<div id="buses">
-  <% @buses.each do |bus| %>
-    <%= render bus %>
-    <p>
-      <%= link_to "Show this bus", bus %>
-    </p>
-  <% end %>
-</div>
+h1 {
+    text-align: center;
+    color: #4CAF50;
+}
 
-<%= link_to "New bus", new_bus_path %>
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+td {
+    white-space: pre; 
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input, select {
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+a {
+    text-decoration: none;
+    color: #4CAF50;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 4px;
+}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus table</title>
+</head>
+<body>
+    <div class="container">
+        <h1>List of Buses</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Bus Number</th>
+                    <th>Bus Plate Number</th>
+                    <th>Drivers</th>
+                    <th>Bus Picture</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>AB1234CD</td>
+                    <td>JC Sto. Domingo</td>
+                    <td><img src="bus3.jpg" alt="Bus 001"></td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>EF5678GH</td>
+                    <td>Kertch Umali</td>
+                    <td><img src="bus2.jpg" alt="Bus 002"></td>
+                </tr>
+                <tr>
+                    <td>003</td>
+                    <td>IJ9012KL</td>
+                    <td>Joshtin Llaguno</td>
+                    <td><img src="bus1.jpg" alt="Bus 003"></td>
+                </tr>
+            </tbody>
+        </table>
+        <form action="busform.html">
+            <input type="submit" value="New Bus" />
+        </form>
+    </div>
+</body>
+</html>
