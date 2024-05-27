@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a bus</title>
+    <link rel="stylesheet" href="css2.css">
+    <script defer src="submitreservation.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Add a new bus</h2>
+        <form id="bus-form">
+            <label for="trip">Bus Information:</label>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="Busnumber">Bus Number:</label>
+            <input type="busn" id="busn" name="busn" required>
+
+            <label for="platenumber">Plate Number:</label>
+            <input type="platen" id="platen" name="platen" required>
+
+            <label for="busimage">Bus Image:</label>
+            <input type="file" name="fileToUpload" id="fileToUpload">
+
+            <button type="submit">Submit Bus</button>
+        </form>
+        <form action="buslist.html">
+            <input type="submit" value="Back to Bus List" />
+        </form>
+    </div>
+</body>
+</html>
