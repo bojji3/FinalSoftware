@@ -1,14 +1,15 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Drivers</h1>
 
-<div id="drivers">
+<ul>
   <% @drivers.each do |driver| %>
-    <%= render driver %>
-    <p>
-      <%= link_to "Show this driver", driver %>
-    </p>
+    <li>
+      <h2><%= driver.name %></h2>
+      <p>Contact Number: <%= driver.contact_number_string %></p>
+      <p>Bus: <%= driver.bus.plate_number %></p>
+      <p><%= link_to 'Show', driver %></p>
+      <p><%= link_to 'Destroy', driver, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    </li>
   <% end %>
-</div>
+</ul>
 
-<%= link_to "New driver", new_driver_path %>
+<%= link_to 'New Driver', new_driver_path %>

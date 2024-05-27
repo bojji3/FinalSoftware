@@ -1,5 +1,6 @@
 class DriversController < ApplicationController
   before_action :set_driver, only: [:show, :edit, :update, :destroy]
+  before_action :set_buses, only: [:new, :edit, :create, :update]
 
   # GET /drivers
   def index
@@ -13,12 +14,10 @@ class DriversController < ApplicationController
   # GET /drivers/new
   def new
     @driver = Driver.new
-    @buses = Bus.all
   end
 
   # GET /drivers/1/edit
   def edit
-    @buses = Bus.all
   end
 
   # POST /drivers
@@ -28,7 +27,6 @@ class DriversController < ApplicationController
     if @driver.save
       redirect_to @driver, notice: 'Driver was successfully created.'
     else
-      @buses = Bus.all
       render :new
     end
   end
@@ -38,7 +36,6 @@ class DriversController < ApplicationController
     if @driver.update(driver_params)
       redirect_to @driver, notice: 'Driver was successfully updated.'
     else
-      @buses = Bus.all
       render :edit
     end
   end
@@ -55,8 +52,12 @@ class DriversController < ApplicationController
       @driver = Driver.find(params[:id])
     end
 
+    def set_buses
+      @buses = Bus.all
+    end
+
     # Only allow a list of trusted parameters through.
     def driver_params
-      params.require(:driver).permit(:name, :contact_number_string, :bus_id, :image)
+      params.require(:driver).permit(:name, :contact_number, :bus_id, :image)
     end
 end
